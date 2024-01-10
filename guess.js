@@ -12,7 +12,7 @@ const p = document.createElement('p')
 let prevGuess = []
 // we will use this array to store the values which user has already submitted,so that user doesn't enter the same value again.
 
-let numGuess = 1;  // variable to monitor how many attempts have been done.
+let numGuess = 0;  // variable to monitor how many attempts have been done.
 
 let playGame = true;
 
@@ -41,7 +41,7 @@ function validateGuess(guess){
         alert('please enter a Number leass than 100')
     }else{
         prevGuess.push(guess)
-        if(numGuess === 11){
+        if(numGuess === 9){
             displayGuess(guess)
             displayMessage(`Game Over . Random number was ${randomNumber}`)
 
@@ -53,7 +53,6 @@ function validateGuess(guess){
         }
     }
 }
-
 
 //function to print a message
 function checkGuess(guess){
@@ -73,7 +72,7 @@ function displayGuess(guess){
     userInput.value = ''
     guessSlot.innerHTML += `${guess}  `;
     numGuess++;
-    remaining.innerHTML = `${11-numGuess}`
+    remaining.innerHTML = `${10-numGuess}`
 }
 
 function displayMessage(message){
